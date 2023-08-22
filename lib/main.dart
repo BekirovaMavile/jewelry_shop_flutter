@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jewellry_shop/ui/_ui.dart';
+import 'package:jewellry_shop/ui/screens/home_screen.dart';
 import 'package:jewellry_shop/ui_kit/app_theme.dart';
 
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Jewellery Shop',
       theme: AppTheme.lightTheme,
-      home: const JewList(),
+      home: const HomeScreen(),
     );
   }
 }

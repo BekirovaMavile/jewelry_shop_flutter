@@ -38,6 +38,23 @@ class AppTheme {
       contentPadding: EdgeInsets.all(20),
       fillColor: Colors.white,
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor:
+        MaterialStateProperty.all<Color>(
+          LightThemeColor.purple,
+        ),
+      ),
+    ),
+    bottomNavigationBarTheme: const 	BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: Colors.white,
+      selectedItemColor: LightThemeColor.purple,
+    ),
+    iconTheme: const IconThemeData(color:
+    Colors.black45),
+    bottomAppBarTheme: const BottomAppBarTheme(color:
+    Colors.white),
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -73,6 +90,24 @@ class AppTheme {
       filled: true,
       contentPadding: EdgeInsets.all(20),
       fillColor: DarkThemeColor.primaryLight,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor:
+        MaterialStateProperty.all<Color>(
+          LightThemeColor.purple,
+        ),
+      ),
+    ),
+    bottomNavigationBarTheme: const 		BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: DarkThemeColor.primaryLight,
+      selectedItemColor: LightThemeColor.purple,
+      unselectedItemColor: Colors.white70,
+    ),
+    iconTheme: const IconThemeData(color: Colors.white),
+    bottomAppBarTheme: const BottomAppBarTheme(
+      color: DarkThemeColor.primaryLight,
     ),
   );
 }

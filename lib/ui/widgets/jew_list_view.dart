@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/_data.dart';
 import '../../ui_kit/_ui_kit.dart';
+import '../_ui.dart';
 
 class JewListView extends StatelessWidget {
   const JewListView({
@@ -26,6 +27,11 @@ class JewListView extends StatelessWidget {
             return GestureDetector(
               onTap: (){
                 print('Клик на карточку');
+                Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (_) => const JewDetail()
+                    )
+                );
               },
               child: Container(
                 width: 160,
@@ -60,7 +66,7 @@ class JewListView extends StatelessWidget {
               width: 50,
             );
           },
-          itemCount: 20),
+          itemCount: jews.length),
     );
   }
 }

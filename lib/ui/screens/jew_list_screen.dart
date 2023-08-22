@@ -159,7 +159,7 @@ class JewListState extends State<JewList> {
                     width: 15,
                     height: 30,
                   ),
-              itemCount: AppData.categories.length),
+              itemCount: AppData.jewItems.length),
         ));
   }
 }
