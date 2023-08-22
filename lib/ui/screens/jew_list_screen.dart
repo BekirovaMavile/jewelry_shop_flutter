@@ -2,9 +2,11 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart' hide Badge;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jewellry_shop/data/app_data.dart';
+import 'package:jewellry_shop/states/jew_state.dart';
 import 'package:jewellry_shop/ui/extensions/app_extension.dart';
 import 'package:jewellry_shop/ui/widgets/jew_list_view.dart';
 
+import '../../data/_data.dart';
 import '../../ui_kit/_ui_kit.dart';
 
 class JewList extends StatefulWidget {
@@ -15,12 +17,13 @@ class JewList extends StatefulWidget {
 }
 
 class JewListState extends State<JewList> {
-  var categories = AppData.categories;
+  // var categories = AppData.categories;
+  List<Jew> get jewsByCategory => JewState().jewsByCategory;
+  List<JewCategory> get categories => JewState().categories;
+  List<Jew> get jews => JewState().jews;
 
-  void onCategoryTap(int selectedIndex) {
-    categories.asMap().forEach((index, category) {
-      category.isSelected = index == selectedIndex;
-    });
+  void onCategoryTap(JewCategory category) async {
+    await JewState().onCategoryTap(category);
     setState(() {});
   }
 
@@ -47,14 +50,14 @@ class JewListState extends State<JewList> {
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
                 _categories(),
-                JewListView(jews: AppData.jewItems),
+                JewListView(jews: jewsByCategory),
                 Padding(
                   padding: const EdgeInsets.only(top: 25, bottom: 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Best food of the week",
+                        "Best jewellery of the week",
                         style: Theme.of(context).textTheme.displaySmall,
                       ),
                       Padding(
@@ -70,7 +73,7 @@ class JewListState extends State<JewList> {
                     ],
                   ),
                 ),
-                JewListView(jews: AppData.jewItems, isReversed: true),
+                JewListView(jews: jews, isReversed: true),
               ],
             ),
           ),
@@ -81,7 +84,7 @@ class JewListState extends State<JewList> {
     return AppBar(
       leading: IconButton(
         icon: const FaIcon(FontAwesomeIcons.dice),
-        onPressed: () {},
+        onPressed: () => JewState().toggleTheme(),
       ),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -135,7 +138,7 @@ class JewListState extends State<JewList> {
                 final category = categories[index];
                 return GestureDetector(
                   onTap: () {
-                    onCategoryTap(index);
+                    onCategoryTap(category);
                   },
                   child: Container(
                     width: 100,
@@ -159,7 +162,7 @@ class JewListState extends State<JewList> {
                     width: 15,
                     height: 30,
                   ),
-              itemCount: AppData.jewItems.length),
+              itemCount: categories.length),
         ));
   }
 }

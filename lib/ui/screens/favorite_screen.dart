@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jewellry_shop/data/_data.dart';
+import 'package:jewellry_shop/states/jew_state.dart';
 import 'package:jewellry_shop/ui/widgets/empty_wrapper.dart';
 import 'package:jewellry_shop/ui_kit/_ui_kit.dart';
 
@@ -11,7 +12,12 @@ class FavoriteScreen extends StatefulWidget {
 }
 
 class FavoriteScreenState extends State<FavoriteScreen> {
-  var favoriteJew = AppData.favoriteItems;
+  // var favoriteJew = AppData.favoriteItems;
+  List<Jew> get favoriteJew => JewState().favorite;
+
+  void update() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {

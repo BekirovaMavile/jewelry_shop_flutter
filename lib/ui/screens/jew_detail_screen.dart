@@ -2,18 +2,41 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jewellry_shop/data/_data.dart';
+import 'package:jewellry_shop/states/jew_state.dart';
 import 'package:jewellry_shop/ui/widgets/counter_button.dart';
 import 'package:jewellry_shop/ui_kit/_ui_kit.dart';
 
 class JewDetail extends StatefulWidget {
-  const JewDetail({super.key});
+  const JewDetail({super.key, required this.jew});
+  final Jew jew;
 
   @override
   State<JewDetail> createState() => JewDetailState();
 }
 
 class JewDetailState extends State<JewDetail> {
-  final jew = AppData.jew;
+  late Jew jew = widget.jew;
+
+  void onIncrementTap() async{
+    await JewState().onIncreaseQuantityTap(jew);
+    setState(() {
+    });
+  }
+
+  void onDecrementTap() async{
+    await JewState().onDecreaseQuantityTap(jew);
+    setState(() {
+    });
+  }
+
+  void onAddToCart() async {
+    await JewState().onAddToCartTap(jew);
+  }
+
+  void onAddRemoveFavorite() async {
+    await JewState().onAddRemoveFavoriteTap(jew);
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +70,7 @@ class JewDetailState extends State<JewDetail> {
     return FloatingActionButton(
       elevation: 0.0,
       backgroundColor: LightThemeColor.purple,
-      onPressed: () {},
+      onPressed: onAddRemoveFavorite,
       child: jew.isFavorite
           ? const Icon(AppIcon.heart)
           : const Icon(AppIcon.outlinedHeart),
@@ -116,8 +139,8 @@ class JewDetailState extends State<JewDetail> {
                               ?.copyWith(color: LightThemeColor.purple),
                         ),
                         CounterButton(
-                          onIncrementTap: (){},
-                          onDecrementTap: (){},
+                          onIncrementTap: onIncrementTap,
+                          onDecrementTap: onDecrementTap,
                           label: Text(
                             jew.quantity.toString(),
                             style: Theme.of(context).textTheme.displayLarge,
@@ -142,7 +165,7 @@ class JewDetailState extends State<JewDetail> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: ElevatedButton(
-                          onPressed: (){},
+                          onPressed: onAddToCart,
                           child: const Text("Add to cart"),
                         ),
                       ),

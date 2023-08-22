@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jewellry_shop/data/_data.dart';
+import 'package:jewellry_shop/states/jew_state.dart';
 import 'package:jewellry_shop/ui/widgets/counter_button.dart';
 import 'package:jewellry_shop/ui/widgets/empty_wrapper.dart';
 import 'package:jewellry_shop/ui_kit/_ui_kit.dart';
@@ -12,7 +14,37 @@ class CartScreen extends StatefulWidget {
 }
 
 class CartScreenState extends State<CartScreen> {
-  var cartJew = AppData.cartItems;
+  List<Jew> get cartJew => JewState().cart;
+  double get subtotal => JewState().subtotal;
+  double taxes = 5.0;
+
+  void onIncrementTap(Jew jew) async{
+    await JewState().onIncreaseQuantityTap(jew);
+    setState(() {
+    });
+  }
+
+  void onDecrementTap(Jew jew) async{
+    await JewState().onDecreaseQuantityTap(jew);
+    setState(() {
+    });
+  }
+
+  void update() {
+    setState(() {});
+  }
+
+  void onRemoveFromCart(Jew jew) async {
+    await JewState().onRemoveFromCartTap(jew);
+    setState(() {
+    });
+  }
+
+  void onCheckOutTap() async {
+    await JewState().onCheckOutTap();
+    setState(() {
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +55,7 @@ class CartScreenState extends State<CartScreen> {
         isEmpty: cartJew.isEmpty,
         child: _cartListView(),
       ),
-      bottomNavigationBar: _bottomAppBar(),
+      bottomNavigationBar: cartJew.isEmpty? const SizedBox() : _bottomAppBar(),
     );
   }
 
@@ -42,56 +74,81 @@ class CartScreenState extends State<CartScreen> {
       padding: const EdgeInsets.all(30),
       itemCount: cartJew.length,
       itemBuilder: (_, index) {
-        return Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(5),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: isDark ?
-            DarkThemeColor.primaryLight :
-            Colors.white,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        final jew = JewState().cart[index];
+        return Dismissible(
+          direction: DismissDirection.endToStart,
+          onDismissed: (direction) {
+            if (direction == DismissDirection.endToStart) {
+              onRemoveFromCart(jew);
+            }
+          },
+          key: UniqueKey(),
+          background: Row(
             children: [
-              const SizedBox(width: 20),
-              Image.asset(cartJew[index].image, scale: 10),
-              const SizedBox(width: 20),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    cartJew[index].name,
-                    style: Theme.of(context).textTheme.displayMedium,
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    "\$${cartJew[index].price}",
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
-                ],
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 25,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.redAccent,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: const FaIcon(FontAwesomeIcons.trash),
               ),
-              const Spacer(),
-              Column(
-                children: [
-                  CounterButton(
-                    onIncrementTap: () {},
-                    onDecrementTap: () {},
-                    size: const Size(24, 24),
-                    padding: 0,
-                    label: Text(
-                      cartJew[index].quantity.toString(),
+            ],
+          ),
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: isDark ?
+              DarkThemeColor.primaryLight :
+              Colors.white,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const SizedBox(width: 20),
+                Image.asset(cartJew[index].image, scale: 10),
+                const SizedBox(width: 20),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      cartJew[index].name,
                       style: Theme.of(context).textTheme.displayMedium,
                     ),
-                  ),
-                  Text(
-                    "\$10",
-                    style: AppTextStyle.h2Style
-                        .copyWith(color: LightThemeColor.purple),
-                  )
-                ],
-              )
-            ],
+                    const SizedBox(height: 5),
+                    Text(
+                      "\$${cartJew[index].price}",
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                Column(
+                  children: [
+                    CounterButton(
+                      onIncrementTap: () => onIncrementTap(jew),
+                      onDecrementTap: () => onDecrementTap(jew),
+                      size: const Size(24, 24),
+                      padding: 0,
+                      label: Text(
+                        cartJew[index].quantity.toString(),
+                        style: Theme.of(context).textTheme.displayMedium,
+                      ),
+                    ),
+                    Text(
+                      "\$${JewState().jewPrice(jew)}",
+                      style: AppTextStyle.h2Style
+                          .copyWith(color: LightThemeColor.purple),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         );
       },
@@ -129,7 +186,7 @@ class CartScreenState extends State<CartScreen> {
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           Text(
-                            "\$111",
+                            "\$${subtotal.toString()}",
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                         ],
@@ -146,7 +203,7 @@ class CartScreenState extends State<CartScreen> {
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           Text(
-                            "\$${5.00}",
+                            "\$$taxes",
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                         ],
@@ -166,7 +223,7 @@ class CartScreenState extends State<CartScreen> {
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                           Text(
-                            "\$120.0",
+                            "\$${(taxes + subtotal).toString()}",
                             style: AppTextStyle.h2Style.copyWith(
                               color: LightThemeColor.purple,
                             ),
@@ -181,7 +238,7 @@ class CartScreenState extends State<CartScreen> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: onCheckOutTap,
                           child: const Text("Checkout"),
                         ),
                       ),

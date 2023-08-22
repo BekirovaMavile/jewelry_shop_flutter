@@ -26,10 +26,9 @@ class JewListView extends StatelessWidget {
             Jew jew = isReversed ? jews.reversed.toList()[index] : jews[index];
             return GestureDetector(
               onTap: (){
-                print('Клик на карточку');
                 Navigator.of(context).push(
                     MaterialPageRoute(
-                        builder: (_) => const JewDetail()
+                        builder: (_) => JewDetail(jew: jew)
                     )
                 );
               },
