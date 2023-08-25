@@ -19,11 +19,16 @@ class AppData {
   static List<Jew> jewItems = [
     Jew(
       AppAsset.ring1,
-      "Ring1",
-      10.0,
+      "Silver ring",
+      12.0,
       1,
       false,
-      dummyText,
+      "Experience timeless elegance with our exquisite sterling silver ring. "
+      "Meticulously crafted, its unique design exudes sophistication and style. "
+      "The lustrous sterling silver showcases its nobility, "
+      "while the intricate details and exquisite craftsmanship add a touch of luxury. "
+      "Elevate your ensemble and make a statement with this ring "
+      "– a perfect companion for cherished moments and refined aesthetics.",
       5.0,
       JewType.ring,
       150,
@@ -31,11 +36,18 @@ class AppData {
     ),
     Jew(
       AppAsset.ring2,
-      "Ring2",
-      10.0,
+      "Silver ring",
+      15.0,
       1,
       false,
-      dummyText,
+      "Elegant sterling silver ring embodies sophistication and style. "
+      "ts unique design, sterling silver's nobility, "
+      "and exquisite craftsmanship combine to create unparalleled luxury. "
+      "Perfect for refined looks and special occasions, "
+      "this ring adds a touch of timeless beauty to every moment. "
+      "Meticulous craftsmanship and intricate details further enhance its charm, "
+      "making it an ideal choice for both sophisticated daily wear "
+      "and special occasions that deserve a touch of luxury.",
       5.0,
       JewType.ring,
       150,
@@ -43,11 +55,17 @@ class AppData {
     ),
     Jew(
       AppAsset.ring3,
-      "Ring3",
-      10.0,
+      "Gold ring",
+      50.0,
       1,
       false,
-      dummyText,
+      "Discover opulence redefined with our exquisite gold ring. "
+      "Meticulously handcrafted, this ring emanates timeless beauty and unparalleled elegance. "
+      "The radiant gold band, symbolizing luxury and prestige, "
+      "is adorned with intricate detailing that catches the light from every angle. "
+      "Whether worn as a statement piece or to complement your refined style, "
+      "this ring adds a touch of sophistication to any occasion, "
+      "becoming a cherished adornment that reflects your impeccable taste.",
       5.0,
       JewType.ring,
       150,
@@ -55,11 +73,17 @@ class AppData {
     ),
     Jew(
       AppAsset.ring4,
-      "Ring4",
-      10.0,
+      "Gold ring",
+      110.0,
       1,
       false,
-      dummyText,
+      "Discover opulence redefined with our exquisite gold ring. "
+      "Meticulously handcrafted, this ring emanates timeless beauty and unparalleled elegance. "
+      "The radiant gold band, symbolizing luxury and prestige, "
+      "is adorned with intricate detailing that catches the light from every angle. "
+      "Whether worn as a statement piece or to complement your refined style, "
+      "this ring adds a touch of sophistication to any occasion, "
+      "becoming a cherished adornment that reflects your impeccable taste.",
       5.0,
       JewType.ring,
       150,
@@ -67,11 +91,18 @@ class AppData {
     ),
     Jew(
       AppAsset.ear1,
-      "Ear1",
-      10.0,
+      "Silver earring",
+      14.0,
       1,
       false,
-      dummyText,
+      "Elevate your jewelry collection with our stunning earrings. "
+      "Crafted with meticulous attention to detail, "
+      "these earrings exude elegance and charm. "
+      "Whether adorned with glittering gemstones or showcasing intricate designs, "
+      "they effortlessly enhance your beauty. From casual gatherings to special occasions, "
+      "our earrings are the perfect accessory to make a statement. "
+      "Dazzle with sophistication and showcase your unique style with these "
+      "exquisite pieces that capture the essence of grace and allure.",
       5.0,
       JewType.earring,
       150,
@@ -79,11 +110,18 @@ class AppData {
     ),
     Jew(
       AppAsset.ear2,
-      "Ear2",
-      10.0,
+      "Gold earring",
+      30.0,
       1,
       false,
-      dummyText,
+      "Elevate your jewelry collection with our stunning earrings. "
+      "Crafted with meticulous attention to detail, "
+      "these earrings exude elegance and charm. "
+      "Whether adorned with glittering gemstones or showcasing intricate designs, "
+      "they effortlessly enhance your beauty. From casual gatherings to special occasions, "
+      "our earrings are the perfect accessory to make a statement. "
+      "Dazzle with sophistication and showcase your unique style with these "
+      "exquisite pieces that capture the essence of grace and allure.",
       5.0,
       JewType.earring,
       150,
@@ -91,11 +129,18 @@ class AppData {
     ),
     Jew(
       AppAsset.ear3,
-      "Ear3",
-      10.0,
+      "Silver earring",
+      25.0,
       1,
       false,
-      dummyText,
+      "Elevate your jewelry collection with our stunning earrings. "
+      "Crafted with meticulous attention to detail, "
+      "these earrings exude elegance and charm. "
+      "Whether adorned with glittering gemstones or showcasing intricate designs, "
+      "they effortlessly enhance your beauty. From casual gatherings to special occasions, "
+      "our earrings are the perfect accessory to make a statement. "
+      "Dazzle with sophistication and showcase your unique style with these "
+      "exquisite pieces that capture the essence of grace and allure.",
       5.0,
       JewType.earring,
       150,
@@ -103,11 +148,18 @@ class AppData {
     ),
     Jew(
       AppAsset.braslet1,
-      "Braslet1",
-      10.0,
+      "Silver bracelet",
+      75.0,
       1,
       false,
-      dummyText,
+      "Adorn your wrist with timeless grace through our exquisite women's bracelet. "
+      "Meticulously designed, this bracelet exudes elegance and sophistication. "
+      "Whether featuring intricate patterns or glistening gemstones, "
+      "it adds a touch of luxury to any ensemble. "
+      "The delicate craftsmanship and attention to detail make it a perfect "
+      "accessory for both everyday elegance and special occasions. "
+      "Elevate your style with this stunning piece that effortlessly "
+      "captures the essence of beauty and refinement.",
       5.0,
       JewType.bracelet,
       150,
@@ -115,11 +167,18 @@ class AppData {
     ),
     Jew(
       AppAsset.braslet2,
-      "Braslet2",
+      "Bracelet",
       10.0,
       1,
       false,
-      dummyText,
+      "Adorn your wrist with timeless grace through our exquisite women's bracelet. "
+      "Meticulously designed, this bracelet exudes elegance and sophistication. "
+      "Whether featuring intricate patterns or glistening gemstones, "
+      "it adds a touch of luxury to any ensemble. "
+      "The delicate craftsmanship and attention to detail make it a perfect "
+      "accessory for both everyday elegance and special occasions. "
+      "Elevate your style with this stunning piece that effortlessly "
+      "captures the essence of beauty and refinement.",
       5.0,
       JewType.bracelet,
       150,
@@ -127,11 +186,18 @@ class AppData {
     ),
     Jew(
       AppAsset.braslet3,
-      "Braslet3",
-      10.0,
+      "Gold bracelet",
+      100.0,
       1,
       false,
-      dummyText,
+      "Adorn your wrist with timeless grace through our exquisite women's bracelet. "
+      "Meticulously designed, this bracelet exudes elegance and sophistication. "
+      "Whether featuring intricate patterns or glistening gemstones, "
+      "it adds a touch of luxury to any ensemble. "
+      "The delicate craftsmanship and attention to detail make it a perfect "
+      "accessory for both everyday elegance and special occasions. "
+      "Elevate your style with this stunning piece that effortlessly "
+      "captures the essence of beauty and refinement.",
       5.0,
       JewType.bracelet,
       150,
@@ -139,11 +205,17 @@ class AppData {
     ),
     Jew(
       AppAsset.brooch1,
-      "Brooch1",
-      10.0,
+      "Gold brooch",
+      120.0,
       1,
       false,
-      dummyText,
+      "Elevate your ensemble with our enchanting women's brooch. "
+      "Meticulously crafted, this accessory exudes elegance and charm. "
+      "Whether adorned with sparkling crystals or featuring delicate floral designs, "
+      "it adds a touch of sophistication to any outfit. The intricate craftsmanship and "
+      "attention to detail make it a perfect statement piece for both casual and formal occasions. "
+      "Enhance your style with this exquisite brooch that captures "
+      "the essence of timeless beauty and grace.",
       5.0,
       JewType.brooch,
       150,
@@ -151,11 +223,17 @@ class AppData {
     ),
     Jew(
       AppAsset.brooch2,
-      "Brooch2",
-      10.0,
+      "Gold brooch",
+      95.0,
       1,
       false,
-      dummyText,
+      "Elevate your ensemble with our enchanting women's brooch. "
+      "Meticulously crafted, this accessory exudes elegance and charm. "
+      "Whether adorned with sparkling crystals or featuring delicate floral designs, "
+      "it adds a touch of sophistication to any outfit. The intricate craftsmanship and "
+      "attention to detail make it a perfect statement piece for both casual and formal occasions. "
+      "Enhance your style with this exquisite brooch that captures "
+      "the essence of timeless beauty and grace.",
       5.0,
       JewType.brooch,
       150,
@@ -163,11 +241,18 @@ class AppData {
     ),
     Jew(
       AppAsset.pend1,
-      "Pend1",
-      10.0,
+      "Gold pendant",
+      205.0,
       1,
       false,
-      dummyText,
+      "Enhance your neckline with the exquisite beauty of our necklace. "
+      "Meticulously designed, this piece exudes elegance and allure. "
+      "Whether adorned with shimmering gemstones or showcasing intricate patterns, "
+      "it adds a touch of sophistication to any look. The meticulous craftsmanship "
+      "and attention to detail make it a perfect accessory "
+      "for both everyday elegance and special occasions. "
+      "Elevate your style with this stunning necklace "
+      "that effortlessly captures the essence of timeless grace and charm.",
       5.0,
       JewType.pendant,
       150,
@@ -175,11 +260,18 @@ class AppData {
     ),
     Jew(
       AppAsset.pend2,
-      "Pend2",
+      "Silver pendant",
       10.0,
       1,
       false,
-      dummyText,
+      "Enhance your neckline with the exquisite beauty of our necklace. "
+      "Meticulously designed, this piece exudes elegance and allure. "
+      "Whether adorned with shimmering gemstones or showcasing intricate patterns, "
+      "it adds a touch of sophistication to any look. The meticulous craftsmanship "
+      "and attention to detail make it a perfect accessory "
+      "for both everyday elegance and special occasions. "
+      "Elevate your style with this stunning necklace "
+      "that effortlessly captures the essence of timeless grace and charm.",
       5.0,
       JewType.pendant,
       150,
@@ -187,11 +279,17 @@ class AppData {
     ),
     Jew(
       AppAsset.watch1,
-      "Watch1",
-      10.0,
+      "Watch",
+      130.0,
       1,
       false,
-      dummyText,
+      "Elevate your wrist game with our exceptional wristwatch. "
+      "Meticulously crafted, this timepiece combines functionality with style, "
+      "exuding confidence and sophistication. "
+      "Whether it's a classic design or a modern statement piece with intricate detailing, "
+      "it adds a touch of elegance to your attire. With precise craftsmanship "
+      "and attention to detail, our wristwatch is the perfect companion for every occasion, "
+      "reflecting your impeccable taste and capturing the essence of timeless precision and luxury.",
       5.0,
       JewType.watch,
       150,
@@ -199,11 +297,17 @@ class AppData {
     ),
     Jew(
       AppAsset.watch2,
-      "Watch2",
-      10.0,
+      "Watch",
+      155.0,
       1,
       false,
-      dummyText,
+      "Elevate your wrist game with our exceptional wristwatch. "
+      "Meticulously crafted, this timepiece combines functionality with style, "
+      "exuding confidence and sophistication. "
+      "Whether it's a classic design or a modern statement piece with intricate detailing, "
+      "it adds a touch of elegance to your attire. With precise craftsmanship "
+      "and attention to detail, our wristwatch is the perfect companion for every occasion, "
+      "reflecting your impeccable taste and capturing the essence of timeless precision and luxury.",
       5.0,
       JewType.watch,
       150,
@@ -211,11 +315,17 @@ class AppData {
     ),
     Jew(
       AppAsset.watch3,
-      "Watch3",
-      10.0,
+      "Watch",
+      115.0,
       1,
       false,
-      dummyText,
+      "Elevate your wrist game with our exceptional wristwatch. "
+      "Meticulously crafted, this timepiece combines functionality with style, "
+      "exuding confidence and sophistication. "
+      "Whether it's a classic design or a modern statement piece with intricate detailing, "
+      "it adds a touch of elegance to your attire. With precise craftsmanship "
+      "and attention to detail, our wristwatch is the perfect companion for every occasion, "
+      "reflecting your impeccable taste and capturing the essence of timeless precision and luxury.",
       5.0,
       JewType.watch,
       150,
