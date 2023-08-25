@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jewellry_shop/data/_data.dart';
 import 'package:jewellry_shop/states/jew_state.dart';
+import 'package:jewellry_shop/ui/extensions/app_extension.dart';
 import 'package:jewellry_shop/ui/widgets/counter_button.dart';
 import 'package:jewellry_shop/ui/widgets/empty_wrapper.dart';
 import 'package:jewellry_shop/ui_kit/_ui_kit.dart';
@@ -95,7 +96,7 @@ class CartScreenState extends State<CartScreen> {
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: const FaIcon(FontAwesomeIcons.trash),
-              ),
+              ).fadeAnimation(index * 0.6),
             ],
           ),
           child: Container(

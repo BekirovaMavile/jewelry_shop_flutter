@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jewellry_shop/ui/extensions/app_extension.dart';
 
 import '../../data/_data.dart';
 import '../../ui_kit/_ui_kit.dart';
@@ -55,7 +56,7 @@ class JewListView extends StatelessWidget {
                           style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
                         ),
                       ],
-                    ),
+                    ).fadeAnimation(0.7),
                   ),
               ),
             );

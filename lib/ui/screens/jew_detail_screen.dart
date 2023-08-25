@@ -3,11 +3,14 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jewellry_shop/data/_data.dart';
 import 'package:jewellry_shop/states/jew_state.dart';
+import 'package:jewellry_shop/ui/extensions/app_extension.dart';
+import 'package:jewellry_shop/ui/widgets/animations/scale_tween_animation_builder.dart';
 import 'package:jewellry_shop/ui/widgets/counter_button.dart';
 import 'package:jewellry_shop/ui_kit/_ui_kit.dart';
 
 class JewDetail extends StatefulWidget {
   const JewDetail({super.key, required this.jew});
+
   final Jew jew;
 
   @override
@@ -17,16 +20,14 @@ class JewDetail extends StatefulWidget {
 class JewDetailState extends State<JewDetail> {
   late Jew jew = widget.jew;
 
-  void onIncrementTap() async{
+  void onIncrementTap() async {
     await JewState().onIncreaseQuantityTap(jew);
-    setState(() {
-    });
+    setState(() {});
   }
 
-  void onDecrementTap() async{
+  void onDecrementTap() async {
     await JewState().onDecreaseQuantityTap(jew);
-    setState(() {
-    });
+    setState(() {});
   }
 
   void onAddToCart() async {
@@ -42,7 +43,11 @@ class JewDetailState extends State<JewDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(context),
-      body: Center(child: Image.asset(jew.image, scale: 2)),
+      body: Center(
+        child: ScaleTweenAnimationBuilder(
+          child: Image.asset(jew.image, scale: 2),
+        ),
+      ),
       floatingActionButton: _floatingActionButton(),
       bottomNavigationBar: _bottomAppBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
@@ -126,7 +131,7 @@ class JewDetailState extends State<JewDetail> {
                           style: Theme.of(context).textTheme.titleMedium,
                         )
                       ],
-                    ),
+                    ).fadeAnimation(0.4),
                     const SizedBox(height: 15),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -147,17 +152,17 @@ class JewDetailState extends State<JewDetail> {
                           ),
                         )
                       ],
-                    ),
+                    ).fadeAnimation(0.6),
                     const SizedBox(height: 15),
                     Text(
                       "Description",
                       style: Theme.of(context).textTheme.displayMedium,
-                    ),
+                    ).fadeAnimation(0.8),
                     const SizedBox(height: 15),
                     Text(
                       jew.description,
                       style: Theme.of(context).textTheme.titleMedium,
-                    ),
+                    ).fadeAnimation(0.8),
                     const SizedBox(height: 30),
                     SizedBox(
                       width: double.infinity,
