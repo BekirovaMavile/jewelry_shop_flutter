@@ -18,6 +18,7 @@ class AppData {
 
   static List<Jew> jewItems = [
     Jew(
+      1,
       AppAsset.ring1,
       "Silver ring",
       12.0,
@@ -35,6 +36,7 @@ class AppData {
       false,
     ),
     Jew(
+      2,
       AppAsset.ring2,
       "Silver ring",
       15.0,
@@ -54,6 +56,7 @@ class AppData {
       false,
     ),
     Jew(
+      3,
       AppAsset.ring3,
       "Gold ring",
       50.0,
@@ -72,6 +75,7 @@ class AppData {
       false,
     ),
     Jew(
+      4,
       AppAsset.ring4,
       "Gold ring",
       110.0,
@@ -90,6 +94,7 @@ class AppData {
       false,
     ),
     Jew(
+      5,
       AppAsset.ear1,
       "Silver earring",
       14.0,
@@ -109,6 +114,7 @@ class AppData {
       false,
     ),
     Jew(
+      6,
       AppAsset.ear2,
       "Gold earring",
       30.0,
@@ -128,6 +134,7 @@ class AppData {
       false,
     ),
     Jew(
+      7,
       AppAsset.ear3,
       "Silver earring",
       25.0,
@@ -147,6 +154,7 @@ class AppData {
       false,
     ),
     Jew(
+      8,
       AppAsset.braslet1,
       "Silver bracelet",
       75.0,
@@ -166,6 +174,7 @@ class AppData {
       false,
     ),
     Jew(
+      9,
       AppAsset.braslet2,
       "Bracelet",
       10.0,
@@ -185,6 +194,7 @@ class AppData {
       false,
     ),
     Jew(
+      10,
       AppAsset.braslet3,
       "Gold bracelet",
       100.0,
@@ -204,6 +214,7 @@ class AppData {
       false,
     ),
     Jew(
+      11,
       AppAsset.brooch1,
       "Gold brooch",
       120.0,
@@ -222,6 +233,7 @@ class AppData {
       false,
     ),
     Jew(
+      12,
       AppAsset.brooch2,
       "Gold brooch",
       95.0,
@@ -240,6 +252,7 @@ class AppData {
       false,
     ),
     Jew(
+      13,
       AppAsset.pend1,
       "Gold pendant",
       205.0,
@@ -259,6 +272,7 @@ class AppData {
       false,
     ),
     Jew(
+      14,
       AppAsset.pend2,
       "Silver pendant",
       10.0,
@@ -278,6 +292,7 @@ class AppData {
       false,
     ),
     Jew(
+      15,
       AppAsset.watch1,
       "Watch",
       130.0,
@@ -296,6 +311,7 @@ class AppData {
       false,
     ),
     Jew(
+      16,
       AppAsset.watch2,
       "Watch",
       155.0,
@@ -314,6 +330,7 @@ class AppData {
       false,
     ),
     Jew(
+      17,
       AppAsset.watch3,
       "Watch",
       115.0,
@@ -369,6 +386,7 @@ class AppData {
 
   static List<Jew> cartItems = [
     Jew(
+      2,
       AppAsset.ring2,
       "Ring2",
       10.0,
@@ -381,6 +399,7 @@ class AppData {
       false,
     ),
     Jew(
+      9,
       AppAsset.braslet2,
       "Braslet2",
       10.0,
@@ -393,6 +412,7 @@ class AppData {
       false,
     ),
     Jew(
+      15,
       AppAsset.watch1,
       "Watch1",
       10.0,
@@ -408,6 +428,7 @@ class AppData {
 
   static List<Jew> favoriteItems = [
     Jew(
+      16,
       AppAsset.watch2,
       "Watch2",
       10.0,
@@ -420,6 +441,7 @@ class AppData {
       false,
     ),
     Jew(
+      5,
       AppAsset.ear1,
       "Ear1",
       10.0,
@@ -432,6 +454,7 @@ class AppData {
       false,
     ),
     Jew(
+      13,
       AppAsset.pend1,
       "Pend1",
       10.0,
@@ -446,6 +469,7 @@ class AppData {
   ];
 
   static Jew jew = Jew(
+    16,
     AppAsset.watch2,
     "Watch2",
     10.0,

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jewellry_shop/data/_data.dart';
-import 'package:jewellry_shop/states/jew_state.dart';
+import 'package:jewellry_shop/states/jew/jew_bloc.dart';
+
+// import 'package:jewellry_shop/states/jew_state.dart';
 import 'package:jewellry_shop/ui/extensions/app_extension.dart';
 import 'package:jewellry_shop/ui/widgets/animations/scale_tween_animation_builder.dart';
 import 'package:jewellry_shop/ui/widgets/counter_button.dart';
@@ -19,25 +22,6 @@ class JewDetail extends StatefulWidget {
 
 class JewDetailState extends State<JewDetail> {
   late Jew jew = widget.jew;
-
-  void onIncrementTap() async {
-    await JewState().onIncreaseQuantityTap(jew);
-    setState(() {});
-  }
-
-  void onDecrementTap() async {
-    await JewState().onDecreaseQuantityTap(jew);
-    setState(() {});
-  }
-
-  void onAddToCart() async {
-    await JewState().onAddToCartTap(jew);
-  }
-
-  void onAddRemoveFavorite() async {
-    await JewState().onAddRemoveFavoriteTap(jew);
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,11 +56,17 @@ class JewDetailState extends State<JewDetail> {
   }
 
   Widget _floatingActionButton() {
+    final List<Jew> jewList = context.watch<JewBloc>().state.jewList;
+    final jewIndex = jewList.indexWhere((element) => element.id == jew.id);
     return FloatingActionButton(
       elevation: 0.0,
       backgroundColor: LightThemeColor.purple,
-      onPressed: onAddRemoveFavorite,
-      child: jew.isFavorite
+      onPressed: () {
+        if (jewIndex != -1) {
+          context.read<JewBloc>().add(FavoriteListEvent(jewList[jewIndex]));
+        }
+      },
+      child: jewIndex != -1 && jewList[jewIndex].isFavorite
           ? const Icon(AppIcon.heart)
           : const Icon(AppIcon.outlinedHeart),
     );
@@ -143,13 +133,31 @@ class JewDetailState extends State<JewDetail> {
                               .displayLarge
                               ?.copyWith(color: LightThemeColor.purple),
                         ),
-                        CounterButton(
-                          onIncrementTap: onIncrementTap,
-                          onDecrementTap: onDecrementTap,
-                          label: Text(
-                            jew.quantity.toString(),
-                            style: Theme.of(context).textTheme.displayLarge,
-                          ),
+                        BlocBuilder<JewBloc, JewState>(
+                          builder: (context, state) {
+                            final int jewIndex = state.jewList
+                                .indexWhere((element) => element.id == jew.id);
+                            if (jewIndex != -1) {
+                              final int quantity =
+                                  state.jewList[jewIndex].quantity;
+                              return CounterButton(
+                                onIncrementTap: () => context
+                                    .read<JewBloc>()
+                                    .add(IncreaseQuantityEvent(
+                                        state.jewList[jewIndex])),
+                                onDecrementTap: () => context
+                                    .read<JewBloc>()
+                                    .add(DecreaseQuantityEvent(
+                                        state.jewList[jewIndex])),
+                                label: Text(
+                                  '$quantity',
+                                  style:
+                                      Theme.of(context).textTheme.displayLarge,
+                                ),
+                              );
+                            }
+                            return const SizedBox.shrink();
+                          },
                         )
                       ],
                     ).fadeAnimation(0.6),
@@ -170,7 +178,9 @@ class JewDetailState extends State<JewDetail> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: ElevatedButton(
-                          onPressed: onAddToCart,
+                          onPressed: () => context
+                              .read<JewBloc>()
+                              .add(AddToCartEvent(jew)),
                           child: const Text("Add to cart"),
                         ),
                       ),

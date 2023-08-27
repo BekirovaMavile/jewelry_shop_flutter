@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jewellry_shop/data/_data.dart';
+import 'package:jewellry_shop/states/jew/jew_bloc.dart';
 import 'package:jewellry_shop/states/jew_state.dart';
 import 'package:jewellry_shop/ui/extensions/app_extension.dart';
 import 'package:jewellry_shop/ui/widgets/empty_wrapper.dart';
@@ -13,8 +15,6 @@ class FavoriteScreen extends StatefulWidget {
 }
 
 class FavoriteScreenState extends State<FavoriteScreen> {
-  // var favoriteJew = AppData.favoriteItems;
-  List<Jew> get favoriteJew => JewState().favorite;
 
   void update() {
     setState(() {});
@@ -22,6 +22,7 @@ class FavoriteScreenState extends State<FavoriteScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final favoriteJew = context.watch<JewBloc>().isFavorite;
     return Scaffold(
       appBar: _appBar(context),
       body: EmptyWrapper(
@@ -43,6 +44,7 @@ class FavoriteScreenState extends State<FavoriteScreen> {
   }
 
   Widget _favoriteListView() {
+    final favoriteJew = context.watch<JewBloc>().isFavorite;
     return ListView.separated(
       padding: const EdgeInsets.all(30),
       itemCount: favoriteJew.length,

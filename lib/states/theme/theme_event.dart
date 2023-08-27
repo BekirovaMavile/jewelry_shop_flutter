@@ -1,0 +1,9 @@
+part of 'theme_bloc.dart';
+
+@immutable
+class ThemeEvent {
+  const ThemeEvent();
+
+  @override
+  List<Object?> get props => [];
+}
