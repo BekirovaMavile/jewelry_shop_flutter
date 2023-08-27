@@ -5,6 +5,8 @@ import 'package:jewellry_shop/ui/screens/home_screen.dart';
 import 'package:jewellry_shop/ui/screens/login_screen.dart';
 import 'package:jewellry_shop/ui/screens/signup_screen.dart';
 
+import '../_ui.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -239,11 +241,9 @@ class SignUpScreenState extends State<SignUpScreen> {
     );
   }
   void performRegistration() {
-    // Perform your registration logic here
-    // Once registration is successful, navigate to the home screen
     Navigator.pushReplacement(
       _context,
-      MaterialPageRoute(builder: (context) => HomeScreen()),
+      MaterialPageRoute(builder: (context) => const HomeScreen()),
     );
   }
 }
