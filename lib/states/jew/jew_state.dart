@@ -1,4 +1,4 @@
-part of 'jew_bloc.dart';
+part of 'jew_cubit.dart';
 
 @immutable
 class JewState {

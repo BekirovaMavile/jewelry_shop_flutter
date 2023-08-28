@@ -2,10 +2,10 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart' hide Badge;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jewellry_shop/data/app_data.dart';
-import 'package:jewellry_shop/states/category/category_bloc.dart';
-import 'package:jewellry_shop/states/jew/jew_bloc.dart';
+import 'package:jewellry_shop/states/category/category_cubit.dart';
+import 'package:jewellry_shop/states/jew/jew_cubit.dart';
 import 'package:jewellry_shop/states/jew_state.dart';
-import 'package:jewellry_shop/states/theme/theme_bloc.dart';
+import 'package:jewellry_shop/states/theme/theme_cubit.dart';
 import 'package:jewellry_shop/ui/extensions/app_extension.dart';
 import 'package:jewellry_shop/ui/widgets/jew_list_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,15 +20,10 @@ class JewList extends StatefulWidget {
 }
 
 class JewListState extends State<JewList> {
-  // void onCategoryTap(JewCategory category) async {
-  //   await JewState().onCategoryTap(category);
-  //   setState(() {});
-  // }
-
   @override
   Widget build(BuildContext context) {
-    final List<Jew> jewList = context.watch<JewBloc>().state.jewList;
-    final List<Jew> filteredFood = context.select((CategoryBloc bloc) => bloc.state.jews);
+    final List<Jew> jewList = context.watch<JewCubit>().state.jewList;
+    final List<Jew> filteredJew = context.watch<CategoryCubit>().state.jews;
     return Scaffold(
       appBar: _appBar(context),
       body: Padding(
@@ -60,7 +55,7 @@ class JewListState extends State<JewList> {
                     .displaySmall,
               ),
               _categories(),
-              JewListView(jews: filteredFood),
+              JewListView(jews: filteredJew),
               Padding(
                 padding: const EdgeInsets.only(top: 25, bottom: 5),
                 child: Row(
@@ -99,7 +94,7 @@ class JewListState extends State<JewList> {
     return AppBar(
       leading: IconButton(
         icon: const FaIcon(FontAwesomeIcons.dice),
-        onPressed: () => context.read<ThemeBloc>().add(const ThemeEvent()),
+        onPressed: () => context.read<ThemeCubit>().switchTheme(),
       ),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -143,7 +138,7 @@ class JewListState extends State<JewList> {
   }
 
   Widget _categories() {
-    final List<JewCategory> categories = context.select((CategoryBloc bloc) => bloc.state.jewCategories);
+    final List<JewCategory> categories = context.watch<CategoryCubit>().state.jewCategories;
     return Padding(
         padding: const EdgeInsets.only(top: 8.0),
         child: SizedBox(
@@ -154,8 +149,7 @@ class JewListState extends State<JewList> {
                 final category = categories[index];
                 return GestureDetector(
                   onTap: () => context
-                      .read<CategoryBloc>()
-                      .add(CategoryTap(category: category)),
+                      .read<CategoryCubit>().onCategoryTab(category),
                   child: Container(
                     width: 100,
                     alignment: Alignment.center,

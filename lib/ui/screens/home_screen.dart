@@ -24,7 +24,6 @@ class HomeScreenState extends State<HomeScreen> {
     if (currentIndex == index) return;
     currentIndex = index;
     setState(() {});
-    if (index == 2) JewState().favoriteKey.currentState?.update();
   }
 
 

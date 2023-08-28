@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jewellry_shop/data/_data.dart';
-import 'package:jewellry_shop/states/jew/jew_bloc.dart';
+import 'package:jewellry_shop/states/jew/jew_cubit.dart';
 
 // import 'package:jewellry_shop/states/jew_state.dart';
 import 'package:jewellry_shop/ui/extensions/app_extension.dart';
@@ -56,14 +56,14 @@ class JewDetailState extends State<JewDetail> {
   }
 
   Widget _floatingActionButton() {
-    final List<Jew> jewList = context.watch<JewBloc>().state.jewList;
+    final List<Jew> jewList = context.watch<JewCubit>().state.jewList;
     final jewIndex = jewList.indexWhere((element) => element.id == jew.id);
     return FloatingActionButton(
       elevation: 0.0,
       backgroundColor: LightThemeColor.purple,
       onPressed: () {
         if (jewIndex != -1) {
-          context.read<JewBloc>().add(FavoriteListEvent(jewList[jewIndex]));
+          context.read<JewCubit>().isFavoriteTab(jew);
         }
       },
       child: jewIndex != -1 && jewList[jewIndex].isFavorite
@@ -133,7 +133,7 @@ class JewDetailState extends State<JewDetail> {
                               .displayLarge
                               ?.copyWith(color: LightThemeColor.purple),
                         ),
-                        BlocBuilder<JewBloc, JewState>(
+                        BlocBuilder<JewCubit, JewState>(
                           builder: (context, state) {
                             final int jewIndex = state.jewList
                                 .indexWhere((element) => element.id == jew.id);
@@ -142,13 +142,9 @@ class JewDetailState extends State<JewDetail> {
                                   state.jewList[jewIndex].quantity;
                               return CounterButton(
                                 onIncrementTap: () => context
-                                    .read<JewBloc>()
-                                    .add(IncreaseQuantityEvent(
-                                        state.jewList[jewIndex])),
+                                    .read<JewCubit>().increaseQuantity(state.jewList[jewIndex]),
                                 onDecrementTap: () => context
-                                    .read<JewBloc>()
-                                    .add(DecreaseQuantityEvent(
-                                        state.jewList[jewIndex])),
+                                    .read<JewCubit>().decreaseQuantity(state.jewList[jewIndex]),
                                 label: Text(
                                   '$quantity',
                                   style:
@@ -179,8 +175,7 @@ class JewDetailState extends State<JewDetail> {
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: ElevatedButton(
                           onPressed: () => context
-                              .read<JewBloc>()
-                              .add(AddToCartEvent(jew)),
+                              .read<JewCubit>().addToCart(jew),
                           child: const Text("Add to cart"),
                         ),
                       ),

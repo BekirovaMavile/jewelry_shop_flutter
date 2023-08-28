@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jewellry_shop/data/_data.dart';
-import 'package:jewellry_shop/states/jew/jew_bloc.dart';
+import 'package:jewellry_shop/states/jew/jew_cubit.dart';
 import 'package:jewellry_shop/states/jew_state.dart';
 import 'package:jewellry_shop/ui/extensions/app_extension.dart';
 import 'package:jewellry_shop/ui/widgets/counter_button.dart';
@@ -21,7 +21,7 @@ class CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Jew> cartJew = context.watch<JewBloc>().getCartList;
+    final List<Jew> cartJew = context.watch<JewCubit>().getCartList;
     return Scaffold(
       appBar: _appBar(context),
       body: EmptyWrapper(
@@ -43,7 +43,7 @@ class CartScreenState extends State<CartScreen> {
   }
 
   Widget _cartListView() {
-    final List<Jew> cartJew = context.watch<JewBloc>().getCartList;
+    final List<Jew> cartJew = context.watch<JewCubit>().getCartList;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return ListView.separated(
       padding: const EdgeInsets.all(30),
@@ -53,7 +53,7 @@ class CartScreenState extends State<CartScreen> {
           direction: DismissDirection.endToStart,
           onDismissed: (direction) {
             if (direction == DismissDirection.endToStart) {
-              context.read<JewBloc>().add(DeleteFromCartEvent(cartJew[index]));
+              context.read<JewCubit>().deleteFromCart(cartJew[index]);
             }
           },
           key: UniqueKey(),
@@ -107,12 +107,10 @@ class CartScreenState extends State<CartScreen> {
                     CounterButton(
                       onIncrementTap: () =>
                           context
-                              .read<JewBloc>()
-                              .add(IncreaseQuantityEvent(cartJew[index])),
+                              .read<JewCubit>().increaseQuantity(cartJew[index]),
                       onDecrementTap: () =>
                           context
-                              .read<JewBloc>()
-                              .add(DecreaseQuantityEvent(cartJew[index])),
+                              .read<JewCubit>().decreaseQuantity(cartJew[index]),
                       size: const Size(24, 24),
                       padding: 0,
                       label: Text(
@@ -139,7 +137,7 @@ class CartScreenState extends State<CartScreen> {
   }
 
   Widget _bottomAppBar() {
-    final List<Jew> cartJew = context.watch<JewBloc>().getCartList;
+    final List<Jew> cartJew = context.watch<JewCubit>().getCartList;
     return ClipRRect(
       borderRadius: const BorderRadius.only(
         topLeft: Radius.circular(30),
@@ -167,7 +165,7 @@ class CartScreenState extends State<CartScreen> {
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           Text(
-                            "\$${context.read<JewBloc>().subtotalPrice}",
+                            "\$${context.read<JewCubit>().subtotalPrice}",
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                         ],
@@ -204,7 +202,7 @@ class CartScreenState extends State<CartScreen> {
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                           Text(
-                            "\$${taxes + context.read<JewBloc>().subtotalPrice}",
+                            "\$${taxes + context.read<JewCubit>().subtotalPrice}",
                             style: AppTextStyle.h2Style.copyWith(
                               color: LightThemeColor.purple,
                             ),
@@ -219,11 +217,8 @@ class CartScreenState extends State<CartScreen> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: ElevatedButton(
-                          onPressed: () {
-                            for (final jew in cartJew) {
-                              context.read<JewBloc>().add(DeleteFromCartEvent(jew));
-                            }
-                          },
+                          onPressed: () =>
+                            context.read<JewCubit>().cleanCart(),
                           child: const Text("Checkout"),
                         ),
                       ),
