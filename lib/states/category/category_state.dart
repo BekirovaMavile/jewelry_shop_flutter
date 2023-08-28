@@ -1,4 +1,5 @@
-part of 'category_cubit.dart';
+import 'package:flutter/foundation.dart';
+import '../../data/_data.dart';
 
 @immutable
 class CategoryState {

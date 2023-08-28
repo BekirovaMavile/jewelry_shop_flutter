@@ -1,4 +1,6 @@
-part of 'theme_cubit.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import '../../ui_kit/_ui_kit.dart';
 
 @immutable
 class ThemeState {

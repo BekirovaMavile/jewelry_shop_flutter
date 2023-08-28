@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jewellry_shop/data/_data.dart';
-import 'package:jewellry_shop/states/jew/jew_cubit.dart';
-import 'package:jewellry_shop/states/jew_state.dart';
+import 'package:jewellry_shop/states/jew/jew_provider.dart';
 import 'package:jewellry_shop/ui/extensions/app_extension.dart';
 import 'package:jewellry_shop/ui/widgets/empty_wrapper.dart';
 import 'package:jewellry_shop/ui_kit/_ui_kit.dart';
+import 'package:provider/provider.dart';
 
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({super.key});
@@ -18,7 +18,7 @@ class FavoriteScreenState extends State<FavoriteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final favoriteJew = context.watch<JewCubit>().isFavorite;
+    final favoriteJew = context.watch<JewProvider>().isFavorite;
     return Scaffold(
       appBar: _appBar(context),
       body: EmptyWrapper(
@@ -40,7 +40,7 @@ class FavoriteScreenState extends State<FavoriteScreen> {
   }
 
   Widget _favoriteListView() {
-    final favoriteJew = context.watch<JewCubit>().isFavorite;
+    final favoriteJew = context.watch<JewProvider>().isFavorite;
     return ListView.separated(
       padding: const EdgeInsets.all(30),
       itemCount: favoriteJew.length,

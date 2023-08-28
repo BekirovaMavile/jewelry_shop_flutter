@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:jewellry_shop/states/jew/jew_cubit.dart';
+import 'package:jewellry_shop/states/category/category_provider.dart';
+import 'package:jewellry_shop/states/jew/jew_provider.dart';
 import 'package:jewellry_shop/states/jew_state.dart';
-import 'package:jewellry_shop/states/theme/theme_cubit.dart';
+import 'package:jewellry_shop/states/theme/theme_provider.dart';
 import 'package:jewellry_shop/ui/_ui.dart';
 import 'package:jewellry_shop/ui/screens/home_screen.dart';
 import 'package:jewellry_shop/ui/screens/welcome_screen.dart';
 import 'package:jewellry_shop/ui_kit/app_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'states/category/category_cubit.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,26 +19,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    return MultiProvider(
       providers: [
-        BlocProvider(
-          create: (context) => CategoryCubit(),
+        ChangeNotifierProvider<CategoryProvider>(
+          create: (context) => CategoryProvider(),
         ),
-        BlocProvider(
-          create: (context) => JewCubit(),
+        ChangeNotifierProvider<JewProvider>(
+          create: (context) => JewProvider(),
         ),
-        BlocProvider(
-          create: (context) => ThemeCubit(),
+        ChangeNotifierProvider<ThemeProvider>(
+          create: (context) => ThemeProvider(),
         ),
       ],
-      child: BlocBuilder<ThemeCubit, ThemeState>(
-        builder: (context, state) {
-          return MaterialApp(
-            title: 'Jewellery Shop',
-            theme: state.theme,
-            home: const HomeScreen(),
-          );
-        },
+      child: Consumer<ThemeProvider>(
+        builder: (_, themeProvider, __) => MaterialApp(
+          title: 'Jewellery Shop',
+          home: const HomeScreen(),
+          theme: themeProvider.state.theme,
+        ),
       ),
     );
   }
