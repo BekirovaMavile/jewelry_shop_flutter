@@ -19,7 +19,7 @@ class JewList extends StatefulWidget {
   State<StatefulWidget> createState() => JewListState();
 }
 
-class JewListState extends State<JewList> {
+class JewListState extends State<JewList>  {
   @override
   Widget build(BuildContext context) {
     final List<Jew> jewList = context.watch<JewCubit>().state.jewList;
