@@ -3,13 +3,13 @@ import 'package:jewellry_shop/ui/extensions/app_extension.dart';
 import 'package:jewellry_shop/ui/screens/login_screen.dart';
 import 'package:jewellry_shop/ui/screens/signup_screen.dart';
 
-class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<WelcomeScreen> createState() => WelcomeScreenState();
+  State<SplashScreen> createState() => SplashScreenState();
 }
-class WelcomeScreenState extends State<WelcomeScreen> {
+class SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

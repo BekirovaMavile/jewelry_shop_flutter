@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jewellry_shop/states/jew_state.dart';
 import 'package:jewellry_shop/ui/_ui.dart';
 import 'package:jewellry_shop/ui/screens/home_screen.dart';
-import 'package:jewellry_shop/ui/screens/welcome_screen.dart';
+import 'package:jewellry_shop/ui/screens/splash_screen.dart';
 import 'package:jewellry_shop/ui_kit/app_theme.dart';
 
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           theme: isLight
               ? AppTheme.lightTheme
               : AppTheme.darkTheme,
-          home: const WelcomeScreen(),
+          home: const HomeScreen(),
         );
       },
     );
