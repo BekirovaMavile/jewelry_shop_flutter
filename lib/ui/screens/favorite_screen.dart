@@ -26,7 +26,7 @@ class FavoriteScreenState extends State<FavoriteScreen> {
       appBar: _appBar(context),
       body: EmptyWrapper(
         type: EmptyWrapperType.favorite,
-        title: 'Empty favorite',
+        title: 'Добавьте товар в избранное',
         isEmpty: favoriteJew.isEmpty,
         child: _favoriteListView(),
       ),
@@ -36,7 +36,7 @@ class FavoriteScreenState extends State<FavoriteScreen> {
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
       title: Text(
-        "Favorite screen",
+        "Избранное",
         style: Theme.of(context).textTheme.displayMedium,
       ),
     );

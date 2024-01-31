@@ -21,4 +21,5 @@ class AppAsset{
   static const emptyCart = "assets/images/cart.png";
   static const emptyFavorite = "assets/images/favorite.png";
   static const profileImage = "assets/images/profile.png";
+  static const profileIcon = "assets/images/profileIcon.png";
 }

@@ -16,7 +16,7 @@ class AppTextStyle {
   );
 
   static TextStyle h3Style = const TextStyle(
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: FontWeight.bold,
     color: Colors.black,
   );

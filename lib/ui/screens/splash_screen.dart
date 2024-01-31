@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:jewellry_shop/authtentication/login_screen.dart';
+import 'package:jewellry_shop/authtentication/signup.dart';
 import 'package:jewellry_shop/ui/extensions/app_extension.dart';
-import 'package:jewellry_shop/ui/screens/login_screen.dart';
-import 'package:jewellry_shop/ui/screens/signup_screen.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -90,7 +91,7 @@ class SplashScreenState extends State<SplashScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return const SignUpScreen();
+                            return const SignUp();
                           },
                         ),
                       );

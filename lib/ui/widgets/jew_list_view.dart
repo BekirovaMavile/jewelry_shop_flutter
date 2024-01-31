@@ -34,7 +34,7 @@ class JewListView extends StatelessWidget {
                 );
               },
               child: Container(
-                width: 160,
+                width: 180,
                 decoration: BoxDecoration(
                   color: isDark ?
                   DarkThemeColor.primaryLight :
@@ -46,9 +46,9 @@ class JewListView extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Image.asset(jew.image, scale: 6),
+                        Image.asset(jew.image, scale: 6, height: 90),
                         Text(
-                          "\$${jew.price}",
+                          "${jew.price}₽",
                           style: AppTextStyle.h3Style.copyWith(color: LightThemeColor.purple),
                         ),
                         Text(
@@ -63,7 +63,7 @@ class JewListView extends StatelessWidget {
           },
           separatorBuilder: (_, __) {
             return Container(
-              width: 50,
+              width: 30,
             );
           },
           itemCount: jews.length),

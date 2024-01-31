@@ -17,7 +17,7 @@ class CartScreen extends StatefulWidget {
 class CartScreenState extends State<CartScreen> {
   List<Jew> get cartJew => JewState().cart;
   double get subtotal => JewState().subtotal;
-  double taxes = 5.0;
+  double taxes = 100;
 
   void onIncrementTap(Jew jew) async{
     await JewState().onIncreaseQuantityTap(jew);
@@ -52,7 +52,7 @@ class CartScreenState extends State<CartScreen> {
     return Scaffold(
       appBar: _appBar(context),
       body: EmptyWrapper(
-        title: "Empty cart",
+        title: "Добавьте товар в корзину",
         isEmpty: cartJew.isEmpty,
         child: _cartListView(),
       ),
@@ -63,7 +63,7 @@ class CartScreenState extends State<CartScreen> {
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
       title: Text(
-        "Cart screen",
+        "Корзина",
         style: Theme.of(context).textTheme.displayMedium,
       ),
     );
@@ -76,6 +76,7 @@ class CartScreenState extends State<CartScreen> {
       itemCount: cartJew.length,
       itemBuilder: (_, index) {
         final jew = JewState().cart[index];
+        final category = jew.type.name.translateToRussian();
         return Dismissible(
           direction: DismissDirection.endToStart,
           onDismissed: (direction) {
@@ -118,12 +119,12 @@ class CartScreenState extends State<CartScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      cartJew[index].name,
+                      category,
                       style: Theme.of(context).textTheme.displayMedium,
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      "\$${cartJew[index].price}",
+                      "${cartJew[index].price}₽",
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                   ],
@@ -142,7 +143,7 @@ class CartScreenState extends State<CartScreen> {
                       ),
                     ),
                     Text(
-                      "\$${JewState().jewPrice(jew)}",
+                      "${JewState().jewPrice(jew)}₽",
                       style: AppTextStyle.h2Style
                           .copyWith(color: LightThemeColor.purple),
                     )
@@ -183,11 +184,11 @@ class CartScreenState extends State<CartScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Subtotal",
+                            "Сумма",
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           Text(
-                            "\$${subtotal.toString()}",
+                            "${subtotal.toString()}₽",
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                         ],
@@ -200,11 +201,11 @@ class CartScreenState extends State<CartScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Taxes",
+                            "Налог",
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           Text(
-                            "\$$taxes",
+                            "$taxes₽",
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                         ],
@@ -220,11 +221,11 @@ class CartScreenState extends State<CartScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Total",
+                            "Всего",
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                           Text(
-                            "\$${(taxes + subtotal).toString()}",
+                            "${(taxes + subtotal).toString()}₽",
                             style: AppTextStyle.h2Style.copyWith(
                               color: LightThemeColor.purple,
                             ),
@@ -240,7 +241,7 @@ class CartScreenState extends State<CartScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: ElevatedButton(
                           onPressed: onCheckOutTap,
-                          child: const Text("Checkout"),
+                          child: const Text("Оформить заказ"),
                         ),
                       ),
                     )

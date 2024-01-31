@@ -4,6 +4,7 @@ class Jew {
   String image;
   String name;
   double price;
+  List<String> size;
   int quantity;
   bool isFavorite;
   String description;
@@ -17,6 +18,7 @@ class Jew {
       this.image,
       this.name,
       this.price,
+      this.size,
       this.quantity,
       this.isFavorite,
       this.description,

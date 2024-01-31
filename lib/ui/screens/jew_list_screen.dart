@@ -1,11 +1,10 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart' hide Badge;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:jewellry_shop/data/app_data.dart';
+import 'package:jewellry_shop/SQLite/sqlite.dart';
 import 'package:jewellry_shop/states/jew_state.dart';
 import 'package:jewellry_shop/ui/extensions/app_extension.dart';
 import 'package:jewellry_shop/ui/widgets/jew_list_view.dart';
-
 import '../../data/_data.dart';
 import '../../ui_kit/_ui_kit.dart';
 
@@ -17,36 +16,51 @@ class JewList extends StatefulWidget {
 }
 
 class JewListState extends State<JewList> {
-  // var categories = AppData.categories;
   List<Jew> get jewsByCategory => JewState().jewsByCategory;
   List<JewCategory> get categories => JewState().categories;
   List<Jew> get jews => JewState().jews;
+  final db = DatabaseHelper();
 
   void onCategoryTap(JewCategory category) async {
     await JewState().onCategoryTap(category);
     setState(() {});
   }
 
+  String? username;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUsername();
+  }
+
+  _loadUsername() async {
+    String? fetchedUsername = await db.getUsername();
+    setState(() {
+      username = fetchedUsername;
+    });
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: _appBar(context),
         body: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Welcome, Lightwood",
+                  "Привет, ${username ?? 'Гость'}",
                   style: Theme.of(context).textTheme.headlineSmall,
                 ).fadeAnimation(0.2),
                 Text(
-                  "What do you want to choose \ntoday",
+                  "Что бы вы хотели выбрать\nсегодня?",
                   style: Theme.of(context).textTheme.displayLarge,
                 ).fadeAnimation(0.4),
                 _searchBar(),
                 Text(
-                  "Available for you",
+                  "Доступно для вас",
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
                 _categories(),
@@ -57,13 +71,13 @@ class JewListState extends State<JewList> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Best jewellery of the week",
+                        "Лучшие товары недели",
                         style: Theme.of(context).textTheme.displaySmall,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 20),
                         child: Text(
-                          "See all",
+                          "Все",
                           style: Theme.of(context)
                               .textTheme
                               .headlineMedium
@@ -120,7 +134,7 @@ class JewListState extends State<JewList> {
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
       child: TextField(
         decoration: InputDecoration(
-          hintText: 'Search food',
+          hintText: 'Найти товар',
           prefixIcon: Icon(Icons.search, color: Colors.grey),
         ),
       ),
@@ -152,14 +166,14 @@ class JewListState extends State<JewList> {
                       ),
                     ),
                     child: Text(
-                      category.type.name.toCapital,
+                      category.type.name.translateToRussian(),
                       style: Theme.of(context).textTheme.headlineMedium,
                     ),
                   ),
                 );
               },
-              separatorBuilder: (_, __) => Container(
-                    width: 15,
+              separatorBuilder: (_, __) => const SizedBox(
+                    width: 5,
                     height: 30,
                   ),
               itemCount: categories.length),

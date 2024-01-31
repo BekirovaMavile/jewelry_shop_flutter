@@ -5,12 +5,12 @@ import 'package:jewellry_shop/data/_data.dart';
 import 'package:jewellry_shop/states/jew_state.dart';
 import 'package:jewellry_shop/ui/extensions/app_extension.dart';
 import 'package:jewellry_shop/ui/widgets/animations/scale_tween_animation_builder.dart';
+import 'package:jewellry_shop/ui/widgets/available_size.dart';
 import 'package:jewellry_shop/ui/widgets/counter_button.dart';
 import 'package:jewellry_shop/ui_kit/_ui_kit.dart';
 
 class JewDetail extends StatefulWidget {
   const JewDetail({super.key, required this.jew});
-
   final Jew jew;
 
   @override
@@ -19,6 +19,20 @@ class JewDetail extends StatefulWidget {
 
 class JewDetailState extends State<JewDetail> {
   late Jew jew = widget.jew;
+  late String selectedSize;
+
+
+  @override
+  void initState() {
+    super.initState();
+    selectedSize = "";
+  }
+
+  void _selectSize(String newSize) {
+    setState(() {
+      selectedSize = newSize;
+    });
+  }
 
   void onIncrementTap() async {
     await JewState().onIncreaseQuantityTap(jew);
@@ -58,16 +72,16 @@ class JewDetailState extends State<JewDetail> {
     return AppBar(
       leading: IconButton(
         onPressed: () => Navigator.of(context).pop(),
-        icon: Icon(Icons.arrow_back),
+        icon: const Icon(Icons.arrow_back),
       ),
       title: Text(
-        'Jewellery Detail Screen',
+        'Детальный просмотр',
         style: TextStyle(
             color: Theme.of(context).brightness == Brightness.light
                 ? Colors.black
                 : Colors.white),
       ),
-      actions: [IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))],
+      actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))],
     );
   }
 
@@ -96,7 +110,7 @@ class JewDetailState extends State<JewDetail> {
                 ? DarkThemeColor.primaryLight
                 : Colors.white,
             child: Padding(
-              padding: const EdgeInsets.all(30),
+              padding: const EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 15),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -137,7 +151,7 @@ class JewDetailState extends State<JewDetail> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "\$${jew.price}",
+                          "${jew.price}₽",
                           style: Theme.of(context)
                               .textTheme
                               .displayLarge
@@ -153,9 +167,28 @@ class JewDetailState extends State<JewDetail> {
                         )
                       ],
                     ).fadeAnimation(0.6),
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Выберите размер",
+                        style: Theme.of(context).textTheme.displayMedium,
+                        ).fadeAnimation(0.8),
+                      ],
+                    ),
+                    const SizedBox(height: 8.0),
+                    Row(
+                      children: [
+                        for (String size in jew.size) // Assuming jew.sizes is a List<String>
+                          AvailableSize(
+                            size: size,
+                            isSelected: selectedSize == size,
+                            onTap: () => _selectSize(size),
+                          ).fadeAnimation(0.8),
+                      ],
+                    ),
                     const SizedBox(height: 15),
                     Text(
-                      "Description",
+                      "Описание",
                       style: Theme.of(context).textTheme.displayMedium,
                     ).fadeAnimation(0.8),
                     const SizedBox(height: 15),
@@ -171,7 +204,7 @@ class JewDetailState extends State<JewDetail> {
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: ElevatedButton(
                           onPressed: onAddToCart,
-                          child: const Text("Add to cart"),
+                          child: const Text("Добавить в корзину"),
                         ),
                       ),
                     )

@@ -19,35 +19,25 @@ class AppData {
   static List<Jew> jewItems = [
     Jew(
       AppAsset.ring1,
-      "Silver ring",
-      12.0,
+      "Серебряное кольцо",
+      5700,
+      ["15", "16", "17", "18"],
       1,
       false,
-      "Experience timeless elegance with our exquisite sterling silver ring. "
-      "Meticulously crafted, its unique design exudes sophistication and style. "
-      "The lustrous sterling silver showcases its nobility, "
-      "while the intricate details and exquisite craftsmanship add a touch of luxury. "
-      "Elevate your ensemble and make a statement with this ring "
-      "– a perfect companion for cherished moments and refined aesthetics.",
-      5.0,
+      "Элегантное серебряное кольцо с изысканным дизайном - идеальное дополнение к вашему стилю. Изготовлено из высококачественного серебра, оно обещает привлекать внимание благодаря своему блеску и утонченной отделке. ",
+      4.25,
       JewType.ring,
       150,
       false,
     ),
     Jew(
       AppAsset.ring2,
-      "Silver ring",
-      15.0,
+      "Кольцо с фианитом",
+      2100,
+      ["15", "16", "17", "18"],
       1,
       false,
-      "Elegant sterling silver ring embodies sophistication and style. "
-      "ts unique design, sterling silver's nobility, "
-      "and exquisite craftsmanship combine to create unparalleled luxury. "
-      "Perfect for refined looks and special occasions, "
-      "this ring adds a touch of timeless beauty to every moment. "
-      "Meticulous craftsmanship and intricate details further enhance its charm, "
-      "making it an ideal choice for both sophisticated daily wear "
-      "and special occasions that deserve a touch of luxury.",
+      "Элегантное серебряное кольцо с изысканным дизайном - идеальное дополнение к вашему стилю. Изготовлено из высококачественного серебра, оно обещает привлекать внимание благодаря своему блеску и утонченной отделке.",
       5.0,
       JewType.ring,
       150,
@@ -55,17 +45,12 @@ class AppData {
     ),
     Jew(
       AppAsset.ring3,
-      "Gold ring",
-      50.0,
+      "Кольцо с фианитом",
+      11000,
+      ["15", "16", "17", "18"],
       1,
       false,
-      "Discover opulence redefined with our exquisite gold ring. "
-      "Meticulously handcrafted, this ring emanates timeless beauty and unparalleled elegance. "
-      "The radiant gold band, symbolizing luxury and prestige, "
-      "is adorned with intricate detailing that catches the light from every angle. "
-      "Whether worn as a statement piece or to complement your refined style, "
-      "this ring adds a touch of sophistication to any occasion, "
-      "becoming a cherished adornment that reflects your impeccable taste.",
+      "Откройте для себя роскошь в новом формате с нашим изысканным золотым кольцом. Тщательно изготовленное, это кольцо излучает вечную красоту и непревзойденную элегантность. Будь то в качестве акцента или дополнения к вашему утонченному стилю, это кольцо добавляет штрих утонченности любому случаю, становясь драгоценным украшением, отражающим ваш безупречный вкус.",
       5.0,
       JewType.ring,
       150,
@@ -73,17 +58,12 @@ class AppData {
     ),
     Jew(
       AppAsset.ring4,
-      "Gold ring",
-      110.0,
+      "Кольцо с опалом",
+      21500,
+      ["15", "16", "17", "18", "19"],
       1,
       false,
-      "Discover opulence redefined with our exquisite gold ring. "
-      "Meticulously handcrafted, this ring emanates timeless beauty and unparalleled elegance. "
-      "The radiant gold band, symbolizing luxury and prestige, "
-      "is adorned with intricate detailing that catches the light from every angle. "
-      "Whether worn as a statement piece or to complement your refined style, "
-      "this ring adds a touch of sophistication to any occasion, "
-      "becoming a cherished adornment that reflects your impeccable taste.",
+      "Откройте для себя роскошь в новом формате с нашим изысканным золотым кольцом. Тщательно изготовленное, это кольцо излучает вечную красоту и непревзойденную элегантность. Будь то в качестве акцента или дополнения к вашему утонченному стилю, это кольцо добавляет штрих утонченности любому случаю, становясь драгоценным украшением, отражающим ваш безупречный вкус.",
       5.0,
       JewType.ring,
       150,
@@ -91,18 +71,12 @@ class AppData {
     ),
     Jew(
       AppAsset.ear1,
-      "Silver earring",
-      14.0,
+      "Серебряные серьги",
+      7500,
+      ["Обычные", "Длинные"],
       1,
       false,
-      "Elevate your jewelry collection with our stunning earrings. "
-      "Crafted with meticulous attention to detail, "
-      "these earrings exude elegance and charm. "
-      "Whether adorned with glittering gemstones or showcasing intricate designs, "
-      "they effortlessly enhance your beauty. From casual gatherings to special occasions, "
-      "our earrings are the perfect accessory to make a statement. "
-      "Dazzle with sophistication and showcase your unique style with these "
-      "exquisite pieces that capture the essence of grace and allure.",
+      "Обогатите свою коллекцию украшений нашими потрясающими серьгами. Изготовленные с тщательным вниманием к деталям, эти серьги излучают элегантность и очарование. От повседневных встреч до особых случаев, наши серьги - идеальный аксессуар для того, чтобы произвести впечатление.",
       5.0,
       JewType.earring,
       150,
@@ -110,18 +84,12 @@ class AppData {
     ),
     Jew(
       AppAsset.ear2,
-      "Gold earring",
-      30.0,
+      "Золотые серьги",
+      12250,
+      ["Обычные", "Длинные"],
       1,
       false,
-      "Elevate your jewelry collection with our stunning earrings. "
-      "Crafted with meticulous attention to detail, "
-      "these earrings exude elegance and charm. "
-      "Whether adorned with glittering gemstones or showcasing intricate designs, "
-      "they effortlessly enhance your beauty. From casual gatherings to special occasions, "
-      "our earrings are the perfect accessory to make a statement. "
-      "Dazzle with sophistication and showcase your unique style with these "
-      "exquisite pieces that capture the essence of grace and allure.",
+      "Обогатите свою коллекцию украшений нашими потрясающими серьгами. Изготовленные с тщательным вниманием к деталям, эти серьги излучают элегантность и очарование. От повседневных встреч до особых случаев, наши серьги - идеальный аксессуар для того, чтобы произвести впечатление.",
       5.0,
       JewType.earring,
       150,
@@ -129,18 +97,12 @@ class AppData {
     ),
     Jew(
       AppAsset.ear3,
-      "Silver earring",
-      25.0,
+      "Серьги с сапфиром",
+      30000,
+      ["Обычные", "Длинные"],
       1,
       false,
-      "Elevate your jewelry collection with our stunning earrings. "
-      "Crafted with meticulous attention to detail, "
-      "these earrings exude elegance and charm. "
-      "Whether adorned with glittering gemstones or showcasing intricate designs, "
-      "they effortlessly enhance your beauty. From casual gatherings to special occasions, "
-      "our earrings are the perfect accessory to make a statement. "
-      "Dazzle with sophistication and showcase your unique style with these "
-      "exquisite pieces that capture the essence of grace and allure.",
+      "Обогатите свою коллекцию украшений нашими потрясающими серьгами. Изготовленные с тщательным вниманием к деталям, эти серьги излучают элегантность и очарование. От повседневных встреч до особых случаев, наши серьги - идеальный аксессуар для того, чтобы произвести впечатление.",
       5.0,
       JewType.earring,
       150,
@@ -148,18 +110,12 @@ class AppData {
     ),
     Jew(
       AppAsset.braslet1,
-      "Silver bracelet",
-      75.0,
+      "Браслет женский",
+      2000,
+      ["16","17.5","18.5","19"],
       1,
       false,
-      "Adorn your wrist with timeless grace through our exquisite women's bracelet. "
-      "Meticulously designed, this bracelet exudes elegance and sophistication. "
-      "Whether featuring intricate patterns or glistening gemstones, "
-      "it adds a touch of luxury to any ensemble. "
-      "The delicate craftsmanship and attention to detail make it a perfect "
-      "accessory for both everyday elegance and special occasions. "
-      "Elevate your style with this stunning piece that effortlessly "
-      "captures the essence of beauty and refinement.",
+      "Тонкая мастерская и внимание к деталям делают его идеальным аксессуаром как для повседневной элегантности, так и для особых случаев. Поднимите свой стиль на новый уровень с этим потрясающим украшением, которое легко захватывает суть красоты и изыска.",
       5.0,
       JewType.bracelet,
       150,
@@ -167,18 +123,12 @@ class AppData {
     ),
     Jew(
       AppAsset.braslet2,
-      "Bracelet",
-      10.0,
+      "Браслет мужской",
+      3100,
+      ["16","17.5","18.5","19"],
       1,
       false,
-      "Adorn your wrist with timeless grace through our exquisite women's bracelet. "
-      "Meticulously designed, this bracelet exudes elegance and sophistication. "
-      "Whether featuring intricate patterns or glistening gemstones, "
-      "it adds a touch of luxury to any ensemble. "
-      "The delicate craftsmanship and attention to detail make it a perfect "
-      "accessory for both everyday elegance and special occasions. "
-      "Elevate your style with this stunning piece that effortlessly "
-      "captures the essence of beauty and refinement.",
+      "Тонкая мастерская и внимание к деталям делают его идеальным аксессуаром как для повседневной элегантности, так и для особых случаев. Поднимите свой стиль на новый уровень с этим потрясающим украшением, которое легко захватывает суть красоты и изыска.",
       5.0,
       JewType.bracelet,
       150,
@@ -186,18 +136,12 @@ class AppData {
     ),
     Jew(
       AppAsset.braslet3,
-      "Gold bracelet",
-      100.0,
+      "Золотой браслет",
+      21000,
+      ["16","17.5","18.5","19"],
       1,
       false,
-      "Adorn your wrist with timeless grace through our exquisite women's bracelet. "
-      "Meticulously designed, this bracelet exudes elegance and sophistication. "
-      "Whether featuring intricate patterns or glistening gemstones, "
-      "it adds a touch of luxury to any ensemble. "
-      "The delicate craftsmanship and attention to detail make it a perfect "
-      "accessory for both everyday elegance and special occasions. "
-      "Elevate your style with this stunning piece that effortlessly "
-      "captures the essence of beauty and refinement.",
+      "Тонкая мастерская и внимание к деталям делают его идеальным аксессуаром как для повседневной элегантности, так и для особых случаев. Поднимите свой стиль на новый уровень с этим потрясающим украшением, которое легко захватывает суть красоты и изыска.",
       5.0,
       JewType.bracelet,
       150,
@@ -205,17 +149,12 @@ class AppData {
     ),
     Jew(
       AppAsset.brooch1,
-      "Gold brooch",
-      120.0,
+      "Золотая брошь",
+      13200,
+      ["Обычная"],
       1,
       false,
-      "Elevate your ensemble with our enchanting women's brooch. "
-      "Meticulously crafted, this accessory exudes elegance and charm. "
-      "Whether adorned with sparkling crystals or featuring delicate floral designs, "
-      "it adds a touch of sophistication to any outfit. The intricate craftsmanship and "
-      "attention to detail make it a perfect statement piece for both casual and formal occasions. "
-      "Enhance your style with this exquisite brooch that captures "
-      "the essence of timeless beauty and grace.",
+      "Тонкая мастерская и внимание к деталям делают его идеальным акцентом как для повседневных, так и для формальных случаев. Подчеркните свой стиль этой изысканной брошью, которая захватывает суть вечной красоты и грации.",
       5.0,
       JewType.brooch,
       150,
@@ -223,17 +162,12 @@ class AppData {
     ),
     Jew(
       AppAsset.brooch2,
-      "Gold brooch",
-      95.0,
+      "Золотая брошь",
+      19000,
+      ["Обычная"],
       1,
       false,
-      "Elevate your ensemble with our enchanting women's brooch. "
-      "Meticulously crafted, this accessory exudes elegance and charm. "
-      "Whether adorned with sparkling crystals or featuring delicate floral designs, "
-      "it adds a touch of sophistication to any outfit. The intricate craftsmanship and "
-      "attention to detail make it a perfect statement piece for both casual and formal occasions. "
-      "Enhance your style with this exquisite brooch that captures "
-      "the essence of timeless beauty and grace.",
+      "Тонкая мастерская и внимание к деталям делают его идеальным акцентом как для повседневных, так и для формальных случаев. Подчеркните свой стиль этой изысканной брошью, которая захватывает суть вечной красоты и грации.",
       5.0,
       JewType.brooch,
       150,
@@ -241,18 +175,12 @@ class AppData {
     ),
     Jew(
       AppAsset.pend1,
-      "Gold pendant",
-      205.0,
+      "Золотая подвеска",
+      34500,
+      ["45 см", "50 см", "55 см"],
       1,
       false,
-      "Enhance your neckline with the exquisite beauty of our necklace. "
-      "Meticulously designed, this piece exudes elegance and allure. "
-      "Whether adorned with shimmering gemstones or showcasing intricate patterns, "
-      "it adds a touch of sophistication to any look. The meticulous craftsmanship "
-      "and attention to detail make it a perfect accessory "
-      "for both everyday elegance and special occasions. "
-      "Elevate your style with this stunning necklace "
-      "that effortlessly captures the essence of timeless grace and charm.",
+      "Подчеркните свою линию шеи изысканной красотой нашего ожерелья. Тщательно разработанное, это украшение излучает элегантность и очарование. Поднимите свой стиль с этим впечатляющим ожерельем, которое легко захватывает суть вечной грации и очарования.",
       5.0,
       JewType.pendant,
       150,
@@ -260,18 +188,12 @@ class AppData {
     ),
     Jew(
       AppAsset.pend2,
-      "Silver pendant",
-      10.0,
+      "Серебряный кулон",
+      7300,
+      ["45 см", "50 см", "55 см"],
       1,
       false,
-      "Enhance your neckline with the exquisite beauty of our necklace. "
-      "Meticulously designed, this piece exudes elegance and allure. "
-      "Whether adorned with shimmering gemstones or showcasing intricate patterns, "
-      "it adds a touch of sophistication to any look. The meticulous craftsmanship "
-      "and attention to detail make it a perfect accessory "
-      "for both everyday elegance and special occasions. "
-      "Elevate your style with this stunning necklace "
-      "that effortlessly captures the essence of timeless grace and charm.",
+      "Подчеркните свою линию шеи изысканной красотой нашего ожерелья. Тщательно разработанное, это украшение излучает элегантность и очарование. Поднимите свой стиль с этим впечатляющим ожерельем, которое легко захватывает суть вечной грации и очарования.",
       5.0,
       JewType.pendant,
       150,
@@ -279,17 +201,12 @@ class AppData {
     ),
     Jew(
       AppAsset.watch1,
-      "Watch",
-      130.0,
+      "Часы мужские",
+      13200,
+      ["36 мм", "41 мм", "46 мм"],
       1,
       false,
-      "Elevate your wrist game with our exceptional wristwatch. "
-      "Meticulously crafted, this timepiece combines functionality with style, "
-      "exuding confidence and sophistication. "
-      "Whether it's a classic design or a modern statement piece with intricate detailing, "
-      "it adds a touch of elegance to your attire. With precise craftsmanship "
-      "and attention to detail, our wristwatch is the perfect companion for every occasion, "
-      "reflecting your impeccable taste and capturing the essence of timeless precision and luxury.",
+      "Тщательно изготовленные, эти часы сочетают в себе функциональность и стиль, излучая уверенность и утонченность. С точным мастерством и вниманием к деталям, наши наручные часы - идеальный спутник для каждого случая, отражая ваш безупречный вкус и захватывая суть вечной точности и роскоши.",
       5.0,
       JewType.watch,
       150,
@@ -297,17 +214,12 @@ class AppData {
     ),
     Jew(
       AppAsset.watch2,
-      "Watch",
-      155.0,
+      "Часы",
+      9900,
+      ["36 мм", "41 мм", "46 мм"],
       1,
       false,
-      "Elevate your wrist game with our exceptional wristwatch. "
-      "Meticulously crafted, this timepiece combines functionality with style, "
-      "exuding confidence and sophistication. "
-      "Whether it's a classic design or a modern statement piece with intricate detailing, "
-      "it adds a touch of elegance to your attire. With precise craftsmanship "
-      "and attention to detail, our wristwatch is the perfect companion for every occasion, "
-      "reflecting your impeccable taste and capturing the essence of timeless precision and luxury.",
+      "Тщательно изготовленные, эти часы сочетают в себе функциональность и стиль, излучая уверенность и утонченность. С точным мастерством и вниманием к деталям, наши наручные часы - идеальный спутник для каждого случая, отражая ваш безупречный вкус и захватывая суть вечной точности и роскоши.",
       5.0,
       JewType.watch,
       150,
@@ -315,17 +227,12 @@ class AppData {
     ),
     Jew(
       AppAsset.watch3,
-      "Watch",
-      115.0,
+      "Часы женские",
+      15800,
+      ["36 мм", "41 мм", "46 мм"],
       1,
       false,
-      "Elevate your wrist game with our exceptional wristwatch. "
-      "Meticulously crafted, this timepiece combines functionality with style, "
-      "exuding confidence and sophistication. "
-      "Whether it's a classic design or a modern statement piece with intricate detailing, "
-      "it adds a touch of elegance to your attire. With precise craftsmanship "
-      "and attention to detail, our wristwatch is the perfect companion for every occasion, "
-      "reflecting your impeccable taste and capturing the essence of timeless precision and luxury.",
+      "Тщательно изготовленные, эти часы сочетают в себе функциональность и стиль, излучая уверенность и утонченность. С точным мастерством и вниманием к деталям, наши наручные часы - идеальный спутник для каждого случая, отражая ваш безупречный вкус и захватывая суть вечной точности и роскоши.",
       5.0,
       JewType.watch,
       150,
@@ -372,6 +279,7 @@ class AppData {
       AppAsset.ring2,
       "Ring2",
       10.0,
+      ["15", "16", "17", "18", "19"],
       1,
       false,
       dummyText,
@@ -384,6 +292,7 @@ class AppData {
       AppAsset.braslet2,
       "Braslet2",
       10.0,
+      ["16","17.5","18.5","19","19.75"],
       1,
       false,
       dummyText,
@@ -396,6 +305,7 @@ class AppData {
       AppAsset.watch1,
       "Watch1",
       10.0,
+      ["36 мм", "41 мм", "46 мм"],
       1,
       false,
       dummyText,
@@ -411,6 +321,7 @@ class AppData {
       AppAsset.watch2,
       "Watch2",
       10.0,
+      ["36 мм", "41 мм", "46 мм"],
       1,
       false,
       dummyText,
@@ -423,6 +334,7 @@ class AppData {
       AppAsset.ear1,
       "Ear1",
       10.0,
+      ["Обычные", "Длинные"],
       1,
       false,
       dummyText,
@@ -435,6 +347,7 @@ class AppData {
       AppAsset.pend1,
       "Pend1",
       10.0,
+      ["45 см", "50 см", "55 см"],
       1,
       false,
       dummyText,
@@ -449,6 +362,7 @@ class AppData {
     AppAsset.watch2,
     "Watch2",
     10.0,
+    ["36 мм", "41 мм", "46 мм"],
     1,
     false,
     dummyText,

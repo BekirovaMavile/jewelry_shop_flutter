@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jewellry_shop/data/_data.dart';
 import 'package:jewellry_shop/states/jew_state.dart';
-
 import '../_ui.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,7 +26,6 @@ class HomeScreenState extends State<HomeScreen> {
     if (index == 1) JewState().cartKey.currentState?.update();
     if (index == 2) JewState().favoriteKey.currentState?.update();
   }
-
 
   @override
   Widget build(BuildContext context) {
