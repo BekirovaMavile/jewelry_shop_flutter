@@ -14,6 +14,7 @@ class JewState {
 
   //Переменные
   List<JewCategory> categories = AppData.categories;
+  GlobalKey tabKey = GlobalKey();
   List<Jew> jews = AppData.jewItems;
   List<Jew> jewsByCategory = AppData.jewItems;
   List<Jew> get cart => jews.where((element) => element.cart).toList();

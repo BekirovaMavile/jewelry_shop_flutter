@@ -20,7 +20,7 @@ class JewDetail extends StatefulWidget {
 class JewDetailState extends State<JewDetail> {
   late Jew jew = widget.jew;
   late String selectedSize;
-
+  bool isOpenCart = false;
 
   @override
   void initState() {
@@ -46,11 +46,58 @@ class JewDetailState extends State<JewDetail> {
 
   void onAddToCart() async {
     await JewState().onAddToCartTap(jew);
+    await _showDialog();
+    if(isOpenCart){
+      isOpenCart = false;
+      final BottomNavigationBar navigationBar = JewState().tabKey.currentWidget as BottomNavigationBar;
+      navigationBar.onTap?.call(1);
+      Navigator.of(context).pop();
+    }
   }
 
   void onAddRemoveFavorite() async {
     await JewState().onAddRemoveFavoriteTap(jew);
     setState(() {});
+  }
+
+  Future<void> _showDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context){
+        return AlertDialog(
+          title: const Text('Товар добавлен в корзину'),
+          content: const SingleChildScrollView(
+            child: ListBody(
+              children: [
+                Text(
+                    'Хотите перейти в корзину?'
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text(
+                'Нет',
+                style:TextStyle(color: LightThemeColor.purple),),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text(
+                'Да',
+                style:TextStyle(color: LightThemeColor.purple),),
+              onPressed: () {
+                isOpenCart = true;
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -70,10 +117,10 @@ class JewDetailState extends State<JewDetail> {
 
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        onPressed: () => Navigator.of(context).pop(),
-        icon: const Icon(Icons.arrow_back),
-      ),
+      // leading: IconButton(
+      //   onPressed: () => Navigator.of(context).pop(),
+      //   icon: const Icon(Icons.arrow_back),
+      // ),
       title: Text(
         'Детальный просмотр',
         style: TextStyle(

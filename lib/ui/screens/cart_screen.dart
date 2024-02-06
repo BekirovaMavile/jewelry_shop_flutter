@@ -84,19 +84,39 @@ class CartScreenState extends State<CartScreen> {
               onRemoveFromCart(jew);
             }
           },
+          confirmDismiss: (DismissDirection direction) async {
+            return await showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: const Text("Подтверждение"),
+                  content: const Text("Вы уверены, что хотите удалить товар?"),
+                  actions: <Widget>[
+                    ElevatedButton(
+                        onPressed: () => Navigator.of(context).pop(true),
+                        child: const Text("Удалить")),
+                    ElevatedButton(
+                        onPressed: () => Navigator.of(context).pop(false),
+                        child: const Text("Отменить")),
+                  ],
+                );
+              },
+            );
+          },
           key: UniqueKey(),
           background: Row(
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                  vertical: 25,
+                  horizontal: 5,
+                  vertical: 20,
                 ),
-                decoration: BoxDecoration(
-                  color: Colors.redAccent,
-                  borderRadius: BorderRadius.circular(15),
+                child: const Column(
+                  children: [
+                    FaIcon(FontAwesomeIcons.trash, color: Colors.red,),
+                    Text("Удалить", style: TextStyle(color: Colors.red,),),
+                  ],
                 ),
-                child: const FaIcon(FontAwesomeIcons.trash),
               ).fadeAnimation(index * 0.6),
             ],
           ),

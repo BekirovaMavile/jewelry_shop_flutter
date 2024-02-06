@@ -37,6 +37,7 @@ class HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        key: JewState().tabKey,
         currentIndex: currentIndex,
         onTap: onTabTap,
         selectedFontSize: 0,
