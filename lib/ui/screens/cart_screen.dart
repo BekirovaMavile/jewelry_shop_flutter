@@ -147,6 +147,10 @@ class CartScreenState extends State<CartScreen> {
                       "${cartJew[index].price}₽",
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
+                    Text(
+                      "${jew.size[index]}",
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
                   ],
                 ),
                 const Spacer(),

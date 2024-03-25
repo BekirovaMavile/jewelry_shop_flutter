@@ -19,7 +19,7 @@ class JewDetail extends StatefulWidget {
 
 class JewDetailState extends State<JewDetail> {
   late Jew jew = widget.jew;
-  late String selectedSize;
+  late String selectedSize = "";
   bool isOpenCart = false;
 
   @override
@@ -45,13 +45,19 @@ class JewDetailState extends State<JewDetail> {
   }
 
   void onAddToCart() async {
-    await JewState().onAddToCartTap(jew);
-    await _showDialog();
-    if(isOpenCart){
-      isOpenCart = false;
-      final BottomNavigationBar navigationBar = JewState().tabKey.currentWidget as BottomNavigationBar;
-      navigationBar.onTap?.call(1);
-      Navigator.of(context).pop();
+    if (selectedSize.isNotEmpty) {
+      await JewState().onAddToCartTap(jew, selectedSize);
+      await _showDialog();
+      if(isOpenCart){
+        isOpenCart = false;
+        final BottomNavigationBar navigationBar = JewState().tabKey.currentWidget as BottomNavigationBar;
+        navigationBar.onTap?.call(1);
+        Navigator.of(context).pop();
+      }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Пожалуйста, выберите размер"),
+      ));
     }
   }
 
@@ -225,7 +231,7 @@ class JewDetailState extends State<JewDetail> {
                     const SizedBox(height: 8.0),
                     Row(
                       children: [
-                        for (String size in jew.size) // Assuming jew.sizes is a List<String>
+                        for (String size in jew.size)
                           AvailableSize(
                             size: size,
                             isSelected: selectedSize == size,

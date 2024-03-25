@@ -43,7 +43,7 @@ class JewState {
     jew.quantity--;
   }
 
-  Future<void> onAddToCartTap(Jew jew) async {
+  Future<void> onAddToCartTap(Jew jew, String selectedSize) async {
     if (!jew.cart) {
       jew.cart = true;
     }

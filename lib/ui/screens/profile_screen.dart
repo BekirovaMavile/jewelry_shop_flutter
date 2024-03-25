@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jewellry_shop/SQLite/sqlite.dart';
 import 'package:jewellry_shop/authtentication/login_screen.dart';
 import 'package:jewellry_shop/states/jew_state.dart';
+import 'package:jewellry_shop/ui/screens/order_screen.dart';
 import 'package:jewellry_shop/ui_kit/_ui_kit.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -101,6 +102,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ListTile(
               leading: const Icon(Icons.shopping_cart, color: Color(0xFF7f83d2),),
               title: Text('Заказы', style: Theme.of(context).textTheme.headlineMedium,),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => OrdersScreen()),
+                );
+              },
             ),
             ListTile(
               leading: const Icon(Icons.history, color: Color(0xFF7f83d2),),
@@ -113,7 +120,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               onChanged: (value) {
                 JewState().toggleTheme();
-                // Действие при изменении состояния переключателя темы
               },
               activeTrackColor: Colors.grey,
             ),
